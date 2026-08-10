@@ -1,10 +1,8 @@
 ---
-
-* **ชื่อบทความ (ภาษาไทย):** การเปรียบเทียบสถาปัตยกรรมโครงข่ายประสาทเทียมแบบคอนโวลูชันสำหรับการเรียนรู้แบบถ่ายโอนเพื่อจำแนกแมลงศัตรูข้าวและระบบคำแนะนำเชิงปฏิบัติเรียลไทม์บนอุปกรณ์พกพา
-* **ชื่อบทความ (ภาษาอังกฤษ):** Comparison of Convolutional Neural Network Architectures for Transfer Learning in Rice Insect Pest Classification and Real-time Practical Recommendation Systems on Mobile Devices
-* **ประเภทบทความ:** บทความวิจัย (Research Article)
-* **กลุ่มเป้าหมายวารสาร:** วารสารวิชาการด้านเทคโนโลยีสารสนเทศ คอมพิวเตอร์ หรือนวัตกรรมการเกษตร (TCI กลุ่ม 1 หรือ 2)
-
+title_th: "การเปรียบเทียบสถาปัตยกรรมโครงข่ายประสาทเทียมแบบคอนโวลูชันสำหรับการเรียนรู้แบบถ่ายโอนเพื่อจำแนกแมลงศัตรูข้าวและระบบคำแนะนำเชิงปฏิบัติเรียลไทม์บนอุปกรณ์พกพา"
+title_en: "Comparison of Convolutional Neural Network Architectures for Transfer Learning in Rice Insect Pest Classification and Real-time Practical Recommendation Systems on Mobile Devices"
+article_type: "Research Article"
+target_journal: "วารสารวิชาการด้านเทคโนโลยีสารสนเทศ คอมพิวเตอร์ หรือนวัตกรรมการเกษตร (TCI กลุ่ม 1 หรือ 2)"
 ---
 
 ### บทคัดย่อ
