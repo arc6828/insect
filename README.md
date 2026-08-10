@@ -61,6 +61,7 @@ e:/chavalit/colab/insect/
  ├── README_ANALYSIS.md            # รายงานเปรียบเทียบผลลัพธ์การฝึกสอนโมเดลและการเปรียบเทียบเชิงลึกพร้อมกราฟ
  ├── output.png                    # ภาพกราฟแสดงการเปลี่ยนแปลง Accuracy & Loss ในรอบการฝึกสอน
  └── RESEARCH_PAPER_DRAFT.md       # โครงร่างบทความวิจัยฉบับวิชาการภาษาไทยที่ปรับปรุงผลใหม่เรียบร้อย
+ └── RESEARCH_PAPER_DRAFT_EN.md    # โครงร่างบทความวิจัยฉบับวิชาการภาษาอังกฤษ (English Version)
 ```
 
 ---
@@ -68,4 +69,5 @@ e:/chavalit/colab/insect/
 ## 💡 ลิงก์อ่านรายละเอียดและผลลัพธ์การทดลองเพิ่มเติม
 * ข้อกำหนดตัวแปรนำเข้าและ Preprocessing: 👉 **[README_INPUTS.md](file:///e:/chavalit/colab/insect/README_INPUTS.md)**
 * การเปรียบเทียบค่าความแม่นยำและวิเคราะห์ Early Stopping: 👉 **[README_ANALYSIS.md](file:///e:/chavalit/colab/insect/README_ANALYSIS.md)**
-* ร่างบทความวิจัยวิชาการฉบับเต็ม: 👉 **[RESEARCH_PAPER_DRAFT.md](file:///e:/chavalit/colab/insect/RESEARCH_PAPER_DRAFT.md)**
+* ร่างบทความวิจัยวิชาการ (ภาษาไทย): 👉 **[RESEARCH_PAPER_DRAFT.md](file:///e:/chavalit/colab/insect/RESEARCH_PAPER_DRAFT.md)**
+* ร่างบทความวิจัยวิชาการ (ภาษาอังกฤษ): 👉 **[RESEARCH_PAPER_DRAFT_EN.md](file:///e:/chavalit/colab/insect/RESEARCH_PAPER_DRAFT_EN.md)**
