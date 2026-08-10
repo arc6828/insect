@@ -50,6 +50,7 @@
 ---
 
 ## 📂 ไฟล์ที่เชื่อมโยงพารามิเตอร์การคำนวณ
-* ประวัติการวิเคราะห์เปรียบเทียบและการลู่เข้าของกราฟ: 👉 **[README_ANALYSIS.md](file:///e:/chavalit/colab/insect/README_ANALYSIS.md)**
-* ภาพรวมคลังข้อมูลและขนาดภาพถ่ายใน Google Drive: 👉 **[README.md](file:///e:/chavalit/colab/insect/README.md)**
-* ร่างบทความวิจัยวิชาการหลัก: 👉 **[RESEARCH_PAPER_DRAFT.md](file:///e:/chavalit/colab/insect/RESEARCH_PAPER_DRAFT.md)**
+* ประวัติการวิเคราะห์เปรียบเทียบและการลู่เข้าของกราฟ: 👉 **[README_ANALYSIS.md](./README_ANALYSIS.md)**
+* ภาพรวมคลังข้อมูลและขนาดภาพถ่ายใน Google Drive: 👉 **[README.md](./README.md)**
+* ร่างบทความวิจัยหลัก (ภาษาไทย): 👉 **[RESEARCH_PAPER_DRAFT.md](./RESEARCH_PAPER_DRAFT.md)**
+* ร่างบทความวิจัยหลัก (ภาษาอังกฤษ): 👉 **[RESEARCH_PAPER_DRAFT_EN.md](./RESEARCH_PAPER_DRAFT_EN.md)**

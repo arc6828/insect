@@ -39,7 +39,7 @@
 ## ⚙️ พารามิเตอร์การทดลองและอินพุตเชิงเทคนิค (Experimental Inputs & Settings)
 
 ข้อมูลพารามิเตอร์เชิงเทคนิคทั้งหมดที่เกี่ยวข้องกับกระบวนการเตรียมรูปภาพนำเข้า (Data Preprocessing), การขยายข้อมูล (Data Augmentation) และค่าตัวแปรระดับสูง (Hyperparameters) ที่ใช้ในการฝึกสอนโมเดลถูกแยกบันทึกไว้ในเอกสารเฉพาะทาง:
-👉 **[README_INPUTS.md](file:///e:/chavalit/colab/insect/README_INPUTS.md)**
+👉 **[README_INPUTS.md](./README_INPUTS.md)**
 
 ---
 
@@ -60,14 +60,14 @@ e:/chavalit/colab/insect/
  ├── README_INPUTS.md              # พารามิเตอร์นำเข้า เทคนิค Preprocessing & Hyperparameters
  ├── README_ANALYSIS.md            # รายงานเปรียบเทียบผลลัพธ์การฝึกสอนโมเดลและการเปรียบเทียบเชิงลึกพร้อมกราฟ
  ├── output.png                    # ภาพกราฟแสดงการเปลี่ยนแปลง Accuracy & Loss ในรอบการฝึกสอน
- └── RESEARCH_PAPER_DRAFT.md       # โครงร่างบทความวิจัยฉบับวิชาการภาษาไทยที่ปรับปรุงผลใหม่เรียบร้อย
+ ├── RESEARCH_PAPER_DRAFT.md       # โครงร่างบทความวิจัยฉบับวิชาการภาษาไทยที่ปรับปรุงผลใหม่เรียบร้อย
  └── RESEARCH_PAPER_DRAFT_EN.md    # โครงร่างบทความวิจัยฉบับวิชาการภาษาอังกฤษ (English Version)
 ```
 
 ---
 
 ## 💡 ลิงก์อ่านรายละเอียดและผลลัพธ์การทดลองเพิ่มเติม
-* ข้อกำหนดตัวแปรนำเข้าและ Preprocessing: 👉 **[README_INPUTS.md](file:///e:/chavalit/colab/insect/README_INPUTS.md)**
-* การเปรียบเทียบค่าความแม่นยำและวิเคราะห์ Early Stopping: 👉 **[README_ANALYSIS.md](file:///e:/chavalit/colab/insect/README_ANALYSIS.md)**
-* ร่างบทความวิจัยวิชาการ (ภาษาไทย): 👉 **[RESEARCH_PAPER_DRAFT.md](file:///e:/chavalit/colab/insect/RESEARCH_PAPER_DRAFT.md)**
-* ร่างบทความวิจัยวิชาการ (ภาษาอังกฤษ): 👉 **[RESEARCH_PAPER_DRAFT_EN.md](file:///e:/chavalit/colab/insect/RESEARCH_PAPER_DRAFT_EN.md)**
+* ข้อกำหนดตัวแปรนำเข้าและ Preprocessing: 👉 **[README_INPUTS.md](./README_INPUTS.md)**
+* การเปรียบเทียบค่าความแม่นยำและวิเคราะห์ Early Stopping: 👉 **[README_ANALYSIS.md](./README_ANALYSIS.md)**
+* ร่างบทความวิจัยวิชาการ (ภาษาไทย): 👉 **[RESEARCH_PAPER_DRAFT.md](./RESEARCH_PAPER_DRAFT.md)**
+* ร่างบทความวิจัยวิชาการ (ภาษาอังกฤษ): 👉 **[RESEARCH_PAPER_DRAFT_EN.md](./RESEARCH_PAPER_DRAFT_EN.md)**
