@@ -81,6 +81,36 @@ When entering the **Fine-Tuning** phase (unfreezing base parameters and training
 
 ![Figure 2: Performance comparison plots showing accuracy and loss during training](output.png)
 
+#### 3.1 Detailed Species Evaluation (Classification Report & Confusion Matrix)
+To analyze the pest classification performance of the best model (**EfficientNetB0** in the Feature Extraction phase), we evaluated it on the validation set of 347 images. The precision, recall, and F1-score for each species are presented in Table 2, and the corresponding confusion matrix is visualized in Figure 3.
+
+**Table 2:** Species-wise Classification Report of the EfficientNetB0 Model on the Validation Set
+
+| No. | Thai Name | Scientific Name | Precision | Recall | F1-score | Support |
+| :---: | :--- | :--- | :---: | :---: | :---: | :---: |
+| 1 | มวนง่าม | *Tetroda denticulifera* | 0.67 | 0.89 | 0.76 | 9 |
+| 2 | หนอนกระทู้กล้า | *Spodoptera mauritia* | 0.90 | 0.90 | 0.90 | 30 |
+| 3 | หนอนกระทู้คอรวง | *Mythimna separata* | 0.93 | 0.90 | 0.92 | 30 |
+| 4 | หนอนกอข้าวสีครีม | *Scirpophaga incertulas* | 0.87 | 0.90 | 0.89 | 30 |
+| 5 | หนอนกอสีชมพู | *Sesamia inferens* | 0.85 | 0.85 | 0.85 | 13 |
+| 6 | หนอนกอแถบลายเล็ก | *Chilo suppressalis* | 0.90 | 0.82 | 0.86 | 11 |
+| 7 | หนอนปลอกข้าว | *Nymphula depunctalis* | 0.93 | 0.93 | 0.93 | 30 |
+| 8 | หนอนห่อใบข้าว | *Cnaphalocrocis medinalis* | 0.87 | 0.90 | 0.88 | 29 |
+| 9 | เพลี่ยกระโดดหลังขาว | *Sogatella furcifera* | 0.87 | 0.90 | 0.89 | 30 |
+| 10 | เพลี้ยกระโดดสีน้ำตาล | *Nilaparvata lugens* | 0.93 | 0.90 | 0.92 | 30 |
+| 11 | เพลี้ยจักจั่นสีเขียว | *Nephotettix virescens* | 0.87 | 0.87 | 0.87 | 15 |
+| 12 | เพลี้ยแป้ง | *Pseudococcus saccharicola* | 0.83 | 0.91 | 0.87 | 11 |
+| 13 | เพลี้ยไฟ | *Stenchaetothrips biformis* | 0.93 | 0.90 | 0.91 | 29 |
+| 14 | แมลงดำหนาม | *Dicladispa armigera* | 1.00 | 1.00 | 1.00 | 3 |
+| 15 | แมลงบั่ว | *Orseolia oryzae* | 1.00 | 1.00 | 1.00 | 4 |
+| 16 | แมลงสิง | *Leptocorisa oratorius* | 1.00 | 0.90 | 0.95 | 30 |
+| 17 | แมลงหล่า | *Scotinophara coarctata* | 0.89 | 0.89 | 0.89 | 19 |
+| | **Overall Accuracy** | | | | **89.80%** | **347** |
+| | **Weighted Avg** | | **0.90** | **0.90** | **0.90** | **347** |
+| | **Macro Avg** | | **0.90** | **0.90** | **0.90** | **347** |
+
+![Figure 3: Confusion Matrix Heatmap of the EfficientNetB0 Model for Rice Insect Classification](confusion_matrix.png)
+
 ---
 
 ### 4. Discussion

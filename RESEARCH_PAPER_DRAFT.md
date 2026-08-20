@@ -89,6 +89,36 @@ This research aims to develop and compare deep learning models for the real-time
 
 ![รูปที่ 2: กราฟเปรียบเทียบค่าความถูกต้อง (Accuracy) และค่าความสูญเสีย (Loss) ในเฟส Feature Extraction และ Fine-Tuning ของทั้ง 3 สถาปัตยกรรม](output.png)
 
+#### 3.1 การประเมินผลเชิงลึกรายสายพันธุ์ (Classification Report & Confusion Matrix)
+เพื่อวิเคราะห์ประสิทธิภาพในการจำแนกแมลงของแบบจำลองที่ดีที่สุด (**EfficientNetB0** ในขั้นตอน Feature Extraction) ผู้วิจัยได้ทำการทดสอบทำนายผลกับชุดข้อมูลตรวจสอบ (Validation Set) จำนวน 347 ภาพ เพื่อหาค่า Precision, Recall และ F1-score ของแต่ละสายพันธุ์ ดังแสดงในตารางที่ 2 และพล็อตแผนภูมิความสับสน (Confusion Matrix) ดังแสดงในรูปที่ 3
+
+**ตารางที่ 2:** รายงานประสิทธิภาพการจำแนกรายสายพันธุ์ของแบบจำลอง EfficientNetB0 บนชุดข้อมูลตรวจสอบ
+
+| ลำดับ | ชื่อภาษาไทย | ชื่อวิทยาศาสตร์ | Precision | Recall | F1-score | Support (จำนวนภาพ) |
+| :---: | :--- | :--- | :---: | :---: | :---: | :---: |
+| 1 | มวนง่าม | *Tetroda denticulifera* | 0.67 | 0.89 | 0.76 | 9 |
+| 2 | หนอนกระทู้กล้า | *Spodoptera mauritia* | 0.90 | 0.90 | 0.90 | 30 |
+| 3 | หนอนกระทู้คอรวง | *Mythimna separata* | 0.93 | 0.90 | 0.92 | 30 |
+| 4 | หนอนกอข้าวสีครีม | *Scirpophaga incertulas* | 0.87 | 0.90 | 0.89 | 30 |
+| 5 | หนอนกอสีชมพู | *Sesamia inferens* | 0.85 | 0.85 | 0.85 | 13 |
+| 6 | หนอนกอแถบลายเล็ก | *Chilo suppressalis* | 0.90 | 0.82 | 0.86 | 11 |
+| 7 | หนอนปลอกข้าว | *Nymphula depunctalis* | 0.93 | 0.93 | 0.93 | 30 |
+| 8 | หนอนห่อใบข้าว | *Cnaphalocrocis medinalis* | 0.87 | 0.90 | 0.88 | 29 |
+| 9 | เพลี่ยกระโดดหลังขาว | *Sogatella furcifera* | 0.87 | 0.90 | 0.89 | 30 |
+| 10 | เพลี้ยกระโดดสีน้ำตาล | *Nilaparvata lugens* | 0.93 | 0.90 | 0.92 | 30 |
+| 11 | เพลี้ยจักจั่นสีเขียว | *Nephotettix virescens* | 0.87 | 0.87 | 0.87 | 15 |
+| 12 | เพลี้ยแป้ง | *Pseudococcus saccharicola* | 0.83 | 0.91 | 0.87 | 11 |
+| 13 | เพลี้ยไฟ | *Stenchaetothrips biformis* | 0.93 | 0.90 | 0.91 | 29 |
+| 14 | แมลงดำหนาม | *Dicladispa armigera* | 1.00 | 1.00 | 1.00 | 3 |
+| 15 | แมลงบั่ว | *Orseolia oryzae* | 1.00 | 1.00 | 1.00 | 4 |
+| 16 | แมลงสิง | *Leptocorisa oratorius* | 1.00 | 0.90 | 0.95 | 30 |
+| 17 | แมลงหล่า | *Scotinophara coarctata* | 0.89 | 0.89 | 0.89 | 19 |
+| | **เฉลี่ยรวม (Accuracy)** | | | | **89.80%** | **347** |
+| | **เฉลี่ยแบบถ่วงน้ำหนัก (Weighted Avg)**| | **0.90** | **0.90** | **0.90** | **347** |
+| | **เฉลี่ยแบบปกติ (Macro Avg)** | | **0.90** | **0.90** | **0.90** | **347** |
+
+![รูปที่ 3: แผนภูมิความสับสน (Confusion Matrix Heatmap) ของแบบจำลอง EfficientNetB0 ในการระบุสายพันธุ์แมลงศัตรูข้าวไทย](confusion_matrix.png)
+
 ---
 
 ### 4. การอภิปรายผลการวิจัย (Discussion)
