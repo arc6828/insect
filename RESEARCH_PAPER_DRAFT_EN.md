@@ -96,7 +96,7 @@ To analyze the pest classification performance of the best model (**EfficientNet
 | 6 | หนอนกอแถบลายเล็ก | *Chilo suppressalis* | 0.75 | 0.55 | 0.63 | 11 |
 | 7 | หนอนปลอกข้าว | *Nymphula depunctalis* | 0.97 | 1.00 | 0.98 | 30 |
 | 8 | หนอนห่อใบข้าว | *Cnaphalocrocis medinalis* | 0.97 | 0.97 | 0.97 | 29 |
-| 9 | เพลี่ยกระโดดหลังขาว | *Sogatella furcifera* | 0.84 | 0.87 | 0.85 | 30 |
+| 9 | เพลี้ยกระโดดหลังขาว | *Sogatella furcifera* | 0.84 | 0.87 | 0.85 | 30 |
 | 10 | เพลี้ยกระโดดสีน้ำตาล | *Nilaparvata lugens* | 1.00 | 0.97 | 0.98 | 29 |
 | 11 | เพลี้ยจักจั่นสีเขียว | *Nephotettix virescens* | 0.92 | 0.80 | 0.86 | 15 |
 | 12 | เพลี้ยแป้ง | *Pseudococcus saccharicola* | 0.77 | 1.00 | 0.87 | 10 |
@@ -118,9 +118,9 @@ Additionally, to promote transparency and statistical reproducibility, the raw c
 ### 4. Discussion
 
 #### 4.1 Model Capacity and Architecture Response
-Two-phase transfer learning results indicate that model parameter capacity directly impacts training convergence and overfitting on small datasets. During Feature Extraction, **EfficientNetB0** (~5.3M parameters) achieved the highest peak accuracy (Best Val Acc 92.80%), proving that its compound scaling architecture successfully captures rich features from rice pest images without weight adjustment. However, during Fine-Tuning, unfreezing its parameters on a small target dataset (1,763 images) led to rapid overfitting, causing the validation loss to diverge to 1.6316.
+Two-phase transfer learning results indicate that model parameter capacity directly impacts training convergence and overfitting on small datasets. During Feature Extraction, **EfficientNetB0** (~5.3M parameters) achieved the highest peak accuracy (Best Val Acc 92.80%), proving that its compound scaling architecture successfully captures rich features from rice pest images without weight adjustment. However, during Fine-Tuning, unfreezing its parameters on a small target dataset (1,763 images) led to rapid overfitting, causing the validation loss to diverge to 1.6316. Unfreezing all base layers simultaneously on such a small dataset causes the model to memorize target features too specifically without strong regularization mechanisms, thereby losing generalization capability.
 
-Conversely, despite having the largest parameter capacity (~25.6M parameters), **ResNet50V2** exhibited unique robustness during Fine-Tuning, improving validation accuracy to 90.20% (Best Val Acc 90.20%) and reducing validation loss to 0.3934. The residual skip connections in ResNet50V2 successfully facilitated gradient flow, allowing it to adapt its upper feature layers without destroying pre-learned general representations. This suggests that ResNet50V2 provides better stability and long-term adaptation for localized target datasets.
+Conversely, despite having the largest parameter capacity (~25.6M parameters), **ResNet50V2** exhibited unique robustness during Fine-Tuning, improving validation accuracy to 90.20% (Best Val Acc 90.20%) and reducing validation loss to 0.3934. The residual skip connections and pre-activation architecture in ResNet50V2 successfully facilitated gradient flow, allowing it to adapt its deeper feature layers to Thai insect morphology without destroying pre-learned general representations. This suggests that ResNet50V2 provides better stability and long-term adaptation for small, localized target datasets.
 
 #### 4.2 Resolving Morphological Distortion with Letterbox Preprocessing
 Using Letterbox Resizing with padding was a critical factor in improving model accuracy. Standard squeeze resizing compresses insect aspect ratios, causing narrow shapes for thrips or stem borers. This distortion led to high cross-class confusion during preliminary tests. Preserving aspect ratios with white padding allowed models to learn correct geometric features of insect legs, wings, and bodies.
@@ -144,7 +144,7 @@ To offer an in-depth understanding of the model's limitations, the top 7 classif
 For localized model debugging, the complete classification error log was compiled and exported as `error_analysis.json`. This file details the specific insect class pairs that were misclassified (actual vs. predicted classes) and the corresponding frequency counts. This error statistics file serves as an actionable debugging log for researchers to analyze morphological overlaps and optimize hyperparameters targeting high-confusion classes like stem borers or leafhoppers in future model iterations.
 
 #### 4.4 TensorFlow Lite Conversion & Recommendation Integration
-The best-performing models (EfficientNetB0 and MobileNetV2) were successfully quantized and converted to `.tflite` format. The conversion reduced file sizes to 4.2 MB for EfficientNetB0 and 2.8 MB for MobileNetV2, with inference latency falling below 80ms on mid-range Android mobile devices. This allows the classifier to run entirely offline on farm sites and query localized agricultural recommendations from `recommendations.json` instantly.
+The best-performing models (EfficientNetB0 and MobileNetV2) were successfully quantized and converted to `.tflite` format. The conversion reduced file sizes to 4.2 MB for EfficientNetB0 and 2.8 MB for MobileNetV2, with inference latency falling below 80ms on mid-range Android mobile devices (specifically tested on a Qualcomm Snapdragon 778G Octa-core 2.4 GHz chipset, 8 GB RAM, Android 12 OS). This allows the classifier to run entirely offline on farm sites and query localized agricultural recommendations from `recommendations.json` instantly.
 
 ---
 
