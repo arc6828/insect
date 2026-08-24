@@ -7,7 +7,7 @@ target_journal: "Academic journals in Information Technology, Computer Science, 
 
 ### Abstract
 
-This research aims to develop and compare deep learning models for the real-time classification of 17 key rice insect pests (out of 22 classes in the recommendation database) in Thailand, integrated with an expert recommendation system that provides practical agricultural solutions for farmers. The initial dataset of 217 field-collected images across 22 classes was expanded using the GBIF Occurrence API to a total of 1,763 images across 17 classes, excluding 5 classes due to insufficient online data. To prevent morphology distortion—such as body width and wing ratio deformation—we applied the letterbox resizing with padding technique to a standardized $224 \times 224$ pixels format, augmented with random rotation, shift, zoom, and flip operations. We compared three popular pre-trained Convolutional Neural Network (CNN) architectures: MobileNetV2, EfficientNetB0, and ResNet50V2 using transfer learning. The pipeline was structured into two phases: Feature Extraction (freezing the base backbone weights) and Fine-Tuning (unfreezing top layers). The experimental results demonstrated that **EfficientNetB0** achieved the highest performance in the Feature Extraction phase, yielding a validation accuracy of **91.35%** (with a peak validation accuracy of **91.64%**) and a validation loss of **0.3243**. In the Fine-Tuning phase, **ResNet50V2** responded most positively to deep optimization, achieving the best adaptation with a validation accuracy of **89.05%** (peaking at **89.34%**) and a validation loss of **0.3778**. Conversely, EfficientNetB0 suffered from overfitting during fine-tuning, which triggered early stopping. The models were successfully converted to TensorFlow Lite format (with file sizes of 4.2 MB for EfficientNetB0 and 2.8 MB for MobileNetV2), making them highly suitable for deployment as a real-time mobile application for localized pest detection and immediate agricultural management.
+This research aims to develop and compare deep learning models for the real-time classification of 17 key rice insect pests (out of 22 classes in the recommendation database) in Thailand, integrated with an expert recommendation system that provides practical agricultural solutions for farmers. The initial dataset of 217 field-collected images across 22 classes was expanded using the GBIF Occurrence API to a total of 1,763 images across 17 classes, excluding 5 classes due to insufficient online data. To prevent morphology distortion—such as body width and wing ratio deformation—we applied the letterbox resizing with padding technique to a standardized $224 \times 224$ pixels format, augmented with random rotation, shift, zoom, and flip operations. We compared three popular pre-trained Convolutional Neural Network (CNN) architectures: MobileNetV2, EfficientNetB0, and ResNet50V2 using transfer learning. The pipeline was structured into two phases: Feature Extraction (freezing the base backbone weights) and Fine-Tuning (unfreezing top layers). The experimental results demonstrated that **EfficientNetB0** achieved the highest performance in the Feature Extraction phase, yielding a validation accuracy of **92.80%** (with a peak validation accuracy of **92.80%**) and a validation loss of **0.2876**. In the Fine-Tuning phase, **ResNet50V2** responded most positively to deep optimization, achieving the best adaptation with a validation accuracy of **90.20%** (peaking at **90.20%**) and a validation loss of **0.3934**. Conversely, EfficientNetB0 suffered from overfitting during fine-tuning, which triggered early stopping. The models were successfully converted to TensorFlow Lite format (with file sizes of 4.2 MB for EfficientNetB0 and 2.8 MB for MobileNetV2), making them highly suitable for deployment as a real-time mobile application for localized pest detection and immediate agricultural management.
 
 **Keywords:** Deep Learning, Rice Pest Classification, Transfer Learning, Letterbox Resize, TensorFlow Lite
 
@@ -32,7 +32,7 @@ Therefore, this research presents a hybrid methodology combining ratio-preservin
 
 The research workflow is structured into 4 main phases as follows:
 
-![Figure 1: Research methodology flowchart, image preprocessing, and model training pipeline](walkthrough_placeholder.png)
+![Figure 1: Research methodology flowchart, image preprocessing, and model training pipeline](methodology_flowchart.jpg)
 
 #### 2.1 Dataset Preparation
 The initial rice insect pest dataset was collected from rice fields in Thailand, covering 22 important classes with a total of 217 images (averaging 10 images per class):
@@ -68,63 +68,80 @@ Table 1 logs and compares the peak performance of the three models during the fe
 
 | Model Architecture | Training Phase | Epochs | Train Acc | Val Acc | Val Loss | Best Val Acc |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| **MobileNetV2** | Feature Extraction<br>Fine-Tuning | 30<br>11 (Early Stop) | 89.90%<br>84.68% | 85.01%<br>84.73% | 0.4055<br>0.4295 | 85.59%<br>85.59% |
-| **EfficientNetB0** | Feature Extraction<br>Fine-Tuning | 30<br>11 (Early Stop) | 94.07%<br>86.65% | 91.35%<br>85.88% | 0.3243<br>1.8639 | **91.64%**<br>88.47% |
-| **ResNet50V2** | Feature Extraction<br>Fine-Tuning | 30<br>20 | 91.10%<br>**97.03%** | 85.01%<br>**89.05%** | 0.4055<br>**0.3778** | 87.90%<br>**89.34%** |
+| **MobileNetV2** | Feature Extraction<br>Fine-Tuning | 30<br>16 (Early Stop) | 90.11%<br>88.06% | 86.17%<br>85.88% | 0.3790<br>0.4081 | 86.17%<br>86.17% |
+| **EfficientNetB0** | Feature Extraction<br>Fine-Tuning | 30<br>11 (Early Stop) | 94.42%<br>84.75% | 92.80%<br>84.73% | 0.2876<br>1.6316 | **92.80%**<br>89.63% |
+| **ResNet50V2** | Feature Extraction<br>Fine-Tuning | 30<br>34 (Early Stop) | 89.90%<br>**98.80%** | 86.46%<br>**90.20%** | 0.4104<br>**0.3934** | 86.46%<br>**90.20%** |
 
-Experimental results demonstrate that during the **Feature Extraction** phase (Epochs 1-30), **EfficientNetB0** achieved the best performance, yielding a validation accuracy of **91.35%** (peaking at **91.64%**) and a minimum validation loss of **0.3243**. In comparison, both **ResNet50V2** and **MobileNetV2** reached a validation accuracy of **85.01%** (peaking at **87.90%** and **85.59%** respectively) with a validation loss of **0.4055**.
+Experimental results demonstrate that during the **Feature Extraction** phase (Epochs 1-30), **EfficientNetB0** achieved the best performance, yielding a validation accuracy of **92.80%** (peaking at **92.80%**) and a minimum validation loss of **0.2876**. In comparison, **ResNet50V2** and **MobileNetV2** reached a validation accuracy of **86.46%** and **86.17%** (peaking at **86.46%** and **86.17%** respectively) with a validation loss of **0.4104** and **0.3790** respectively.
 
 When entering the **Fine-Tuning** phase (unfreezing base parameters and training with a learning rate of $10^{-5}$), we observed distinct behaviors across the architectures:
-1.  **ResNet50V2** was the only architecture that responded positively to fine-tuning, showing steady validation accuracy improvement up to **89.05%** (peaking at **89.34%** at epoch 18) and reducing validation loss to **0.3778**. The skip connections in ResNet50V2 successfully maintained gradient flow, allowing the model to adapt its feature representations to the target pest classes.
-2.  **EfficientNetB0** suffered from severe **Overfitting** during fine-tuning. Although training accuracy increased, validation loss diverged sharply to **1.8639**, and validation accuracy dropped to **85.88%**, triggering early stopping at epoch 11. This indicates that the compound scaling method of EfficientNetB0 is highly sensitive and prone to overfitting on small datasets without strong regularization.
-3.  **MobileNetV2** maintained a stable performance, preserving a peak validation accuracy of **85.59%** (final epoch validation accuracy of **84.73%**) and keeping validation loss at **0.4295** before early stopping was triggered at epoch 11.
+1.  **ResNet50V2** was the only architecture that responded positively to fine-tuning, showing steady validation accuracy improvement up to **90.20%** (peaking at **90.20%** at the final epoch, early stopping triggered at epoch 34) and reducing validation loss to **0.3934**. The skip connections in ResNet50V2 successfully maintained gradient flow, allowing the model to adapt its feature representations to the target pest classes.
+2.  **EfficientNetB0** suffered from severe **Overfitting** during fine-tuning. Although training accuracy increased, validation loss diverged sharply to **1.6316**, and validation accuracy dropped to **84.73%**, triggering early stopping at epoch 11. This indicates that the compound scaling method of EfficientNetB0 is highly sensitive and prone to overfitting on small datasets without strong regularization.
+3.  **MobileNetV2** maintained a stable performance, preserving a peak validation accuracy of **86.17%** (final epoch validation accuracy of **85.88%**) and keeping validation loss at **0.4081** before early stopping was triggered at epoch 16.
 
 ![Figure 2: Performance comparison plots showing accuracy and loss during training](output.png)
 
 #### 3.1 Detailed Species Evaluation (Classification Report & Confusion Matrix)
-To analyze the pest classification performance of the best model (**EfficientNetB0** in the Feature Extraction phase), we evaluated it on the validation set of 347 images. The precision, recall, and F1-score for each species are presented in Table 2, and the corresponding confusion matrix is visualized in Figure 3.
+To analyze the pest classification performance of the best model (**EfficientNetB0**), we evaluated it on the validation set of 347 images. The precision, recall, and F1-score for each species are presented in Table 2, and the corresponding confusion matrix is visualized in Figure 3.
 
 **Table 2:** Species-wise Classification Report of the EfficientNetB0 Model on the Validation Set
 
 | No. | Thai Name | Scientific Name | Precision | Recall | F1-score | Support |
 | :---: | :--- | :--- | :---: | :---: | :---: | :---: |
-| 1 | มวนง่าม | *Tetroda denticulifera* | 0.67 | 0.89 | 0.76 | 9 |
-| 2 | หนอนกระทู้กล้า | *Spodoptera mauritia* | 0.90 | 0.90 | 0.90 | 30 |
-| 3 | หนอนกระทู้คอรวง | *Mythimna separata* | 0.93 | 0.90 | 0.92 | 30 |
-| 4 | หนอนกอข้าวสีครีม | *Scirpophaga incertulas* | 0.87 | 0.90 | 0.89 | 30 |
-| 5 | หนอนกอสีชมพู | *Sesamia inferens* | 0.85 | 0.85 | 0.85 | 13 |
-| 6 | หนอนกอแถบลายเล็ก | *Chilo suppressalis* | 0.90 | 0.82 | 0.86 | 11 |
-| 7 | หนอนปลอกข้าว | *Nymphula depunctalis* | 0.93 | 0.93 | 0.93 | 30 |
-| 8 | หนอนห่อใบข้าว | *Cnaphalocrocis medinalis* | 0.87 | 0.90 | 0.88 | 29 |
-| 9 | เพลี่ยกระโดดหลังขาว | *Sogatella furcifera* | 0.87 | 0.90 | 0.89 | 30 |
-| 10 | เพลี้ยกระโดดสีน้ำตาล | *Nilaparvata lugens* | 0.93 | 0.90 | 0.92 | 30 |
-| 11 | เพลี้ยจักจั่นสีเขียว | *Nephotettix virescens* | 0.87 | 0.87 | 0.87 | 15 |
-| 12 | เพลี้ยแป้ง | *Pseudococcus saccharicola* | 0.83 | 0.91 | 0.87 | 11 |
-| 13 | เพลี้ยไฟ | *Stenchaetothrips biformis* | 0.93 | 0.90 | 0.91 | 29 |
-| 14 | แมลงดำหนาม | *Dicladispa armigera* | 1.00 | 1.00 | 1.00 | 3 |
+| 1 | มวนง่าม | *Tetroda denticulifera* | 0.75 | 0.67 | 0.71 | 9 |
+| 2 | หนอนกระทู้กล้า | *Spodoptera mauritia* | 0.94 | 0.97 | 0.95 | 30 |
+| 3 | หนอนกระทู้คอรวง | *Mythimna separata* | 0.81 | 0.76 | 0.79 | 29 |
+| 4 | หนอนกอข้าวสีครีม | *Scirpophaga incertulas* | 0.92 | 0.83 | 0.87 | 29 |
+| 5 | หนอนกอสีชมพู | *Sesamia inferens* | 0.76 | 1.00 | 0.87 | 13 |
+| 6 | หนอนกอแถบลายเล็ก | *Chilo suppressalis* | 0.75 | 0.55 | 0.63 | 11 |
+| 7 | หนอนปลอกข้าว | *Nymphula depunctalis* | 0.97 | 1.00 | 0.98 | 30 |
+| 8 | หนอนห่อใบข้าว | *Cnaphalocrocis medinalis* | 0.97 | 0.97 | 0.97 | 29 |
+| 9 | เพลี่ยกระโดดหลังขาว | *Sogatella furcifera* | 0.84 | 0.87 | 0.85 | 30 |
+| 10 | เพลี้ยกระโดดสีน้ำตาล | *Nilaparvata lugens* | 1.00 | 0.97 | 0.98 | 29 |
+| 11 | เพลี้ยจักจั่นสีเขียว | *Nephotettix virescens* | 0.92 | 0.80 | 0.86 | 15 |
+| 12 | เพลี้ยแป้ง | *Pseudococcus saccharicola* | 0.77 | 1.00 | 0.87 | 10 |
+| 13 | เพลี้ยไฟ | *Stenchaetothrips biformis* | 1.00 | 1.00 | 1.00 | 28 |
+| 14 | แมลงดำหนาม | *Dicladispa armigera* | 1.00 | 1.00 | 1.00 | 2 |
 | 15 | แมลงบั่ว | *Orseolia oryzae* | 1.00 | 1.00 | 1.00 | 4 |
-| 16 | แมลงสิง | *Leptocorisa oratorius* | 1.00 | 0.90 | 0.95 | 30 |
-| 17 | แมลงหล่า | *Scotinophara coarctata* | 0.89 | 0.89 | 0.89 | 19 |
-| | **Overall Accuracy** | | | | **89.80%** | **347** |
+| 16 | แมลงสิง | *Leptocorisa oratorius* | 0.93 | 0.90 | 0.92 | 30 |
+| 17 | แมลงหล่า | *Scotinophara coarctata* | 0.73 | 0.84 | 0.78 | 19 |
+| | **Overall Accuracy** | | | | **89.63%** | **347** |
 | | **Weighted Avg** | | **0.90** | **0.90** | **0.90** | **347** |
-| | **Macro Avg** | | **0.90** | **0.90** | **0.90** | **347** |
+| | **Macro Avg** | | **0.89** | **0.89** | **0.88** | **347** |
 
 ![Figure 3: Confusion Matrix Heatmap of the EfficientNetB0 Model for Rice Insect Classification](confusion_matrix.png)
+
+Additionally, to promote transparency and statistical reproducibility, the raw classification report and confusion matrix were exported in JSON format as `classification_report.json` and `confusion_matrix.json`. These files preserve the 17 class labels and the raw 2D array representation, allowing researchers to easily import the numerical outputs into other statistical toolkits without losing decimal precision.
 
 ---
 
 ### 4. Discussion
 
 #### 4.1 Model Capacity and Architecture Response
-Two-phase transfer learning results indicate that model parameter capacity directly impacts training convergence and overfitting on small datasets. During Feature Extraction, **EfficientNetB0** (~5.3M parameters) achieved the highest peak accuracy (Best Val Acc 91.64%), proving that its compound scaling architecture successfully captures rich features from rice pest images without weight adjustment. However, during Fine-Tuning, unfreezing its parameters on a small target dataset (1,763 images) led to rapid overfitting, causing the validation loss to diverge to 1.8639.
+Two-phase transfer learning results indicate that model parameter capacity directly impacts training convergence and overfitting on small datasets. During Feature Extraction, **EfficientNetB0** (~5.3M parameters) achieved the highest peak accuracy (Best Val Acc 92.80%), proving that its compound scaling architecture successfully captures rich features from rice pest images without weight adjustment. However, during Fine-Tuning, unfreezing its parameters on a small target dataset (1,763 images) led to rapid overfitting, causing the validation loss to diverge to 1.6316.
 
-Conversely, despite having the largest parameter capacity (~25.6M parameters), **ResNet50V2** exhibited unique robustness during Fine-Tuning, improving validation accuracy to 89.05% (Best Val Acc 89.34%) and reducing validation loss to 0.3778. The residual skip connections in ResNet50V2 successfully facilitated gradient flow, allowing it to adapt its upper feature layers without destroying pre-learned general representations. This suggests that ResNet50V2 provides better stability and long-term adaptation for localized target datasets.
+Conversely, despite having the largest parameter capacity (~25.6M parameters), **ResNet50V2** exhibited unique robustness during Fine-Tuning, improving validation accuracy to 90.20% (Best Val Acc 90.20%) and reducing validation loss to 0.3934. The residual skip connections in ResNet50V2 successfully facilitated gradient flow, allowing it to adapt its upper feature layers without destroying pre-learned general representations. This suggests that ResNet50V2 provides better stability and long-term adaptation for localized target datasets.
 
 #### 4.2 Resolving Morphological Distortion with Letterbox Preprocessing
 Using Letterbox Resizing with padding was a critical factor in improving model accuracy. Standard squeeze resizing compresses insect aspect ratios, causing narrow shapes for thrips or stem borers. This distortion led to high cross-class confusion during preliminary tests. Preserving aspect ratios with white padding allowed models to learn correct geometric features of insect legs, wings, and bodies.
 
 #### 4.3 Model Constraints and Error Analysis
 Error analysis of the best-performing EfficientNetB0 model showed the highest confusion rates among **Yellow stem borer**, **Pink borer**, **Purple stem borer**, and **Striped stem borer**. This confusion stems from their physical similarities during the caterpillar stage (fine-grained categories). Future improvements should integrate fine-grained attention mechanisms or combine visual prediction with crop damage symptom logs.
+
+To offer an in-depth understanding of the model's limitations, the top 7 classification errors (Top 7 Confused Classes) extracted by our error analysis pipeline are presented in Table 3.
+
+**Table 3:** Top 7 most confused insect classes (Top 7 Confused Classes)
+| Rank | Actual Class | Predicted Class | Confusion Count |
+| :---: | :--- | :--- | :---: |
+| 1 | Shield bug | Mealybug | 3 |
+| 2 | Mald bug | Shield bug | 2 |
+| 3 | Yellow stem borer | Pink borer | 2 |
+| 4 | Rice ear-cutting caterpillar | Grass armyworm | 2 |
+| 5 | Striped stem borer | Rice ear-cutting caterpillar | 2 |
+| 6 | White-backed planthopper | Mald bug | 2 |
+| 7 | Rice ear-cutting caterpillar | White-backed planthopper | 2 |
+
+For localized model debugging, the complete classification error log was compiled and exported as `error_analysis.json`. This file details the specific insect class pairs that were misclassified (actual vs. predicted classes) and the corresponding frequency counts. This error statistics file serves as an actionable debugging log for researchers to analyze morphological overlaps and optimize hyperparameters targeting high-confusion classes like stem borers or leafhoppers in future model iterations.
 
 #### 4.4 TensorFlow Lite Conversion & Recommendation Integration
 The best-performing models (EfficientNetB0 and MobileNetV2) were successfully quantized and converted to `.tflite` format. The conversion reduced file sizes to 4.2 MB for EfficientNetB0 and 2.8 MB for MobileNetV2, with inference latency falling below 80ms on mid-range Android mobile devices. This allows the classifier to run entirely offline on farm sites and query localized agricultural recommendations from `recommendations.json` instantly.
@@ -134,7 +151,7 @@ The best-performing models (EfficientNetB0 and MobileNetV2) were successfully qu
 ### 5. Conclusion & Future Work
 
 #### 5.1 Conclusion
-This research successfully compared transfer learning approaches and mobile recommendations for 17 classes of Thai rice insect pests (out of 22 guideline classes). The **EfficientNetB0** model (Feature Extraction) yielded the highest validation accuracy of **91.64%** and a minimum validation loss of **0.3243**, whereas **ResNet50V2** showed the best fine-tuning adaptation with a validation accuracy of **89.34%**. Converting these lightweight models to TensorFlow Lite format enables low-resource offline mobile deployment, allowing farmers to identify pests in real-time without an internet connection.
+This research successfully compared transfer learning approaches and mobile recommendations for 17 classes of Thai rice insect pests (out of 22 guideline classes). The **EfficientNetB0** model (Feature Extraction) yielded the highest validation accuracy of **92.80%** and a minimum validation loss of **0.2876**, whereas **ResNet50V2** showed the best fine-tuning adaptation with a validation accuracy of **90.20%**. Converting these lightweight models to TensorFlow Lite format enables low-resource offline mobile deployment, allowing farmers to identify pests in real-time without an internet connection.
 
 #### 5.2 Future Work
 1.  **Dataset Expansion**: Expand the image dataset to obtain balanced classes with at least 100 images per class to improve overall model generalization.
